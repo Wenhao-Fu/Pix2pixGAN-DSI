@@ -243,7 +243,7 @@ def summarize_performance(step, g_model, dataset, n_samples=4):
 
 
 # train pix2pix models
-def train(d_model, g_model, gan_model, dataset, n_epochs=500, n_batch=1):
+def train(d_model, g_model, gan_model, dataset, n_epochs=400, n_batch=4):
     # determine the output square shape of the discriminator
     n_patch = d_model.output_shape[1]
     # train
