@@ -123,8 +123,8 @@ def define_generator(dynamic_datas_shape):
 
     # output
     g = Conv2DTranspose(1, (3, 3), strides=(2, 2), padding='same', kernel_initializer=init)(d5)
-    # g = Activation('tanh')(g)
-    g = Activation('sigmoid')(g)
+    g = Activation('tanh')(g)
+    # g = Activation('sigmoid')(g)
 
     out_image = g
     # define model
@@ -136,7 +136,7 @@ def define_generator(dynamic_datas_shape):
 def define_gan(g_model, d_model, dynamic_datas_shape):
     # make weights in the discriminator not trainable
     for layer in d_model.layers:
-        if not isinstance(layer, BatchNormalization):  # 如果对象的类型与参数二的类型（classinfo）相同则返回 True，否则返回 False。
+        if not isinstance(layer, BatchNormalization):  
             layer.trainable = False
     # define the source image
     in_src = Input(shape=dynamic_datas_shape)
