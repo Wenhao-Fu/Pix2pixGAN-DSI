@@ -148,8 +148,8 @@ def define_gan(g_model, d_model, dynamic_datas_shape):
     model = Model(in_src, [dis_out, gen_out])
     # compile model
     opt = Adam(lr=0.0002, beta_1=0.5)
-    # loss = adversarial loss + lambda * L1 loss  L1 = 100
-    model.compile(loss=['binary_crossentropy', 'mae'], optimizer=opt, loss_weights=[1, 100])
+    # loss = adversarial loss + lambda * L1 loss  L1 = 1-100
+    model.compile(loss=['binary_crossentropy', 'mae'], optimizer=opt, loss_weights=[1, 40])
     return model
 
 
